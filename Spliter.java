@@ -49,7 +49,8 @@ import utils.Gps;
 import utils.PositionUtil;
 
 /**
- * Hello world!
+ * Spliter!
+ * by mrpan
  *
  */
 public class Spliter 
