@@ -135,7 +135,6 @@ public class Spliter
 	                 break;
 	            }
 	        }
-//	        File file=new File("/Users/panxiaoming/Documents/workspace/gs-tool-split/shp/");
 	        outputSHP(file,features,featureType);
 		}finally {
 			featureIterator.close();
@@ -217,15 +216,6 @@ public class Spliter
 	     String typeName = newDataStore.getTypeNames()[0];
 	     SimpleFeatureSource featureSource = newDataStore.getFeatureSource(typeName);
 	     SimpleFeatureType SHAPE_TYPE = featureSource.getSchema();
-	     /*
-	      * The Shapefile format has a couple limitations:
-	      * - "the_geom" is always first, and used for the geometry attribute name
-	      * - "the_geom" must be of type Point, MultiPoint, MuiltiLineString, MultiPolygon
-	      * - Attribute names are limited in length 
-	      * - Not all data types are supported (example Timestamp represented as Date)
-	      * 
-	      * Each data store has different limitations so check the resulting SimpleFeatureType.
-	      */
 	     System.out.println("SHAPE:"+SHAPE_TYPE);
 
 	     if (featureSource instanceof SimpleFeatureStore) {
@@ -247,7 +237,7 @@ public class Spliter
 	        	 newDataStore.dispose();
 	             transaction.close();
 	         }
-	         JOptionPane.showMessageDialog(null,"转换成功", "PLAIN_MESSAGE", JOptionPane.PLAIN_MESSAGE);
+	         JOptionPane.showMessageDialog(null,"分割完成", "PLAIN_MESSAGE", JOptionPane.PLAIN_MESSAGE);
 	     } else {
 	         System.out.println(typeName + " does not support read/write access");
 	         System.exit(1);
